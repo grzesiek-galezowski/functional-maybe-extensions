@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Copyright>Grzegorz Gałęzowski 2019</Copyright>
+    <PackageLicenseUrl>https://github.com/grzesiek-galezowski/functional-maybe-just/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/grzesiek-galezowski/functional-maybe-just</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/grzesiek-galezowski/functional-maybe-just</RepositoryUrl>
+    <Description>An extension with Just() method for Functional.Maybe</Description>
+    <Authors>Grzegorz Gałęzowski</Authors>
+    <Version>1.0.0</Version>
+    <PackageReleaseNotes />
+    <RootNamespace>Functional.Maybe.Just</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Functional.Maybe" Version="2.0.9" />
+  </ItemGroup>
+
+</Project>
