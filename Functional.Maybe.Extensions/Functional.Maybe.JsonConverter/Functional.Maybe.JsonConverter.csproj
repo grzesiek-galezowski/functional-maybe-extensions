@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Copyright>Grzegorz Gałęzowski 2018</Copyright>
+    <PackageLicenseUrl>https://github.com/grzesiek-galezowski/functional-maybe-newtonsoft-json-converter/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/grzesiek-galezowski/functional-maybe-newtonsoft-json-converter/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/grzesiek-galezowski/functional-maybe-newtonsoft-json-converter/</RepositoryUrl>
+    <Description>A JSON.Net converter that allows serialization and deserialization of instances of Functional.Maybe</Description>
+    <Authors>Grzegorz Gałęzowski</Authors>
+    <Version>2.0.1</Version>
+    <PackageReleaseNotes>maybe&lt;int&gt; serialized to null</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Functional.Maybe" Version="2.0.10" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+  </ItemGroup>
+
+</Project>
