@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Functional.Maybe.FluentAssertions\Functional.Maybe.FluentAssertions.csproj" />
     <ProjectReference Include="..\Functional.Maybe.JsonConverter\Functional.Maybe.JsonConverter.csproj" />
     <ProjectReference Include="..\Functional.Maybe.Just\Functional.Maybe.Just.csproj" />
   </ItemGroup>

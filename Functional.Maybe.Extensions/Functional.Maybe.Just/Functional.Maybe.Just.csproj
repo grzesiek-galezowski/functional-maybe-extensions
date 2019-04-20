@@ -5,9 +5,9 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Copyright>Grzegorz Gałęzowski 2019</Copyright>
-    <PackageLicenseUrl>https://github.com/grzesiek-galezowski/functional-maybe-just/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/grzesiek-galezowski/functional-maybe-just</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/grzesiek-galezowski/functional-maybe-just</RepositoryUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/grzesiek-galezowski/functional-maybe-extensions</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/grzesiek-galezowski/functional-maybe-extensions</RepositoryUrl>
     <Description>An extension with Just() method for Functional.Maybe</Description>
     <Authors>Grzegorz Gałęzowski</Authors>
     <Version>1.0.0</Version>
@@ -18,10 +18,18 @@
   <PropertyGroup>
     <LangVersion>8.0</LangVersion>
     <NullableContextOptions>enable</NullableContextOptions>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Functional.Maybe" Version="2.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

@@ -5,9 +5,9 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Copyright>Grzegorz Gałęzowski 2018</Copyright>
-    <PackageLicenseUrl>https://github.com/grzesiek-galezowski/functional-maybe-newtonsoft-json-converter/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/grzesiek-galezowski/functional-maybe-newtonsoft-json-converter/</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/grzesiek-galezowski/functional-maybe-newtonsoft-json-converter/</RepositoryUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/grzesiek-galezowski/functional-maybe-extensions</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/grzesiek-galezowski/functional-maybe-extensions</RepositoryUrl>
     <Description>A JSON.Net converter that allows serialization and deserialization of instances of Functional.Maybe</Description>
     <Authors>Grzegorz Gałęzowski</Authors>
     <Version>2.0.1</Version>
@@ -17,12 +17,21 @@
   <PropertyGroup>
     <LangVersion>8.0</LangVersion>
     <NullableContextOptions>enable</NullableContextOptions>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
 
   <ItemGroup>
     <PackageReference Include="Functional.Maybe" Version="2.0.10" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
