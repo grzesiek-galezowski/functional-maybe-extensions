@@ -11,6 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Functional.Maybe.JustSpecif
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Functional.Maybe.JsonConverterSpecification", "Functional.Maybe.JsonConverterSpecification\Functional.Maybe.JsonConverterSpecification.csproj", "{3AE3343E-2BE4-48F4-B3D2-AEAEC8D41F39}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Functional.Maybe.FluentAssertions", "Functional.Maybe.FluentAssertions\Functional.Maybe.FluentAssertions.csproj", "{4064A042-0C22-4091-B6DB-5B6A8FCC5824}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Functional.Maybe.FluentAssertionsSpecification", "Functional.Maybe.FluentAssertionsSpecification\Functional.Maybe.FluentAssertionsSpecification.csproj", "{0E52717E-F24C-4C76-9EBE-C5FF64856032}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{3AE3343E-2BE4-48F4-B3D2-AEAEC8D41F39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AE3343E-2BE4-48F4-B3D2-AEAEC8D41F39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AE3343E-2BE4-48F4-B3D2-AEAEC8D41F39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4064A042-0C22-4091-B6DB-5B6A8FCC5824}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4064A042-0C22-4091-B6DB-5B6A8FCC5824}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4064A042-0C22-4091-B6DB-5B6A8FCC5824}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4064A042-0C22-4091-B6DB-5B6A8FCC5824}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E52717E-F24C-4C76-9EBE-C5FF64856032}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E52717E-F24C-4C76-9EBE-C5FF64856032}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E52717E-F24C-4C76-9EBE-C5FF64856032}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E52717E-F24C-4C76-9EBE-C5FF64856032}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
