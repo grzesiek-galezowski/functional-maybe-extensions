@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Functional.Maybe.Just;
 using NUnit.Framework;
 
@@ -7,12 +8,15 @@ namespace Functional.Maybe.JustSpecification
   public class JustExtensionsSpecification
   {
     [Test]
-    public void Test1()
+    public async Task Test1()
     {
-      string s = null;
-      Assert.Throws<ArgumentNullException>(() => s.Just());
+      string nullString = null;
+      Assert.Throws<ArgumentNullException>(() => nullString.Just());
       Assert.AreEqual("a".ToMaybe(), "a".Just());
       Assert.AreEqual("a", "a".Just().Value);
+      Assert.AreEqual("a", (await Task.FromResult("a").JustAsync()).Value);
+      Assert.AreEqual(1, (await Task.FromResult(1).JustAsync()).Value);
+      Assert.ThrowsAsync<ArgumentNullException>(() => Task.FromResult(nullString).JustAsync());
     }
   }
 }
