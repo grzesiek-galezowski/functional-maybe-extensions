@@ -16,14 +16,20 @@ namespace Functional.Maybe.FluentAssertions
 
     public AndConstraint<MaybeAssertions<T>> BeJust(T expected)
     {
-      Execute.Assertion.ForCondition(this.Subject.HasValue).FailWith("Expected a value of type " + typeof(T).Name + ", but got Nothing.");
-      Execute.Assertion.ForCondition(this.Subject.Value.IsSameOrEqualTo(expected)).FailWith("Expected {context:object} to be {0}{reason}, but found {1}.", expected, this.Subject);
+      Execute.Assertion.ForCondition(Subject.HasValue).FailWith("Expected a value of type " + typeof(T).Name + ", but got Nothing.");
+      Execute.Assertion.ForCondition(Subject.Value.IsSameOrEqualTo(expected)).FailWith("Expected {context:object} to be {0}{reason}, but found {1}.", expected, this.Subject);
+      return new AndConstraint<MaybeAssertions<T>>(this);
+    }
+
+    public AndConstraint<MaybeAssertions<T>> BeSomething()
+    {
+      Execute.Assertion.ForCondition(Subject.HasValue).FailWith(() => new FailReason("Expected Maybe<T> to be Something, but got Nothing."));
       return new AndConstraint<MaybeAssertions<T>>(this);
     }
 
     public AndConstraint<MaybeAssertions<T>> BeNothing()
     {
-      Execute.Assertion.ForCondition(!this.Subject.HasValue).FailWith(() => new FailReason("Expected a Nothing, but got a value of {0}", this.Subject.Value));
+      Execute.Assertion.ForCondition(!Subject.HasValue).FailWith(() => new FailReason("Expected a Nothing, but got a value of {0}", this.Subject.Value));
       return new AndConstraint<MaybeAssertions<T>>(this);
     }
   }

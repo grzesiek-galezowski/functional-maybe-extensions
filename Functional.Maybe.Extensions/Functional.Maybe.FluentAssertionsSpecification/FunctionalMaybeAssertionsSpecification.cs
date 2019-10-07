@@ -84,6 +84,23 @@ namespace Functional.Maybe.FluentAssertionsSpecification
           .Should().ThrowExactly<AssertionException>()
           .WithMessage("Expected a value of type Int32, but got Nothing.");
       }
+
+      [Test]
+      public void ShouldPassWhenAssertedThatIsSomethingAndIsIndeedSomething()
+      {
+        12.Just().Invoking(n => n.Should().BeSomething())
+          .Should().NotThrow();
+      }
+
+      [Test]
+      public void ShouldFailWhenAssertedThatIsSomethingButIsNothing()
+      {
+        Maybe<int>.Nothing.Invoking(n => n.Should().BeSomething())
+          .Should().ThrowExactly<AssertionException>()
+          .WithMessage("Expected Maybe<T> to be Something, but got Nothing.");
+      }
+
+
     }
   }
 }
