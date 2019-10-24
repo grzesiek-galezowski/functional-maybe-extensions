@@ -10,7 +10,7 @@
     <RepositoryUrl>https://github.com/grzesiek-galezowski/functional-maybe-extensions</RepositoryUrl>
     <Description>An extension with Just() method for Functional.Maybe</Description>
     <Authors>Grzegorz Gałęzowski</Authors>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
     <PackageReleaseNotes />
     <RootNamespace>Functional.Maybe.Just</RootNamespace>
   </PropertyGroup>
@@ -22,7 +22,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Functional.Maybe" Version="2.0.10" />
+    <PackageReference Include="Functional.Maybe" Version="2.0.18" />
   </ItemGroup>
 
   <ItemGroup>
