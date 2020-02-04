@@ -17,7 +17,7 @@
 
   <PropertyGroup>
     <LangVersion>8.0</LangVersion>
-    <NullableContextOptions>enable</NullableContextOptions>
+    <Nullable>enable</Nullable>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
