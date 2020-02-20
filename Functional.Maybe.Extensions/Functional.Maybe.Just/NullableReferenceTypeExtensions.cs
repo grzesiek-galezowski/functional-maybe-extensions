@@ -1,9 +1,39 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Functional.Maybe;
+using Functional.Maybe.Just;
 
 namespace NullableReferenceTypesExtensions
 {
-  public static class BasicExtensions
+  public static class MaybeNullableExtensions
+  {
+    public static Maybe<T> ToMaybeObject<T>(this T? obj) where T : class
+    {
+      return obj!.ToMaybe();
+    }
+
+    public static Maybe<T> JustObject<T>(this T? obj) where T : class
+    {
+      return obj!.Just();
+    }
+
+    public static async Task<Maybe<T>> JustObjectAsync<T>(this Task<T?> value) where T : class
+    {
+      return (await value).JustObject();
+    }
+
+    public static async Task<Maybe<T>> ToMaybeObjectAsync<T>(this Task<T?> value) where T : class
+    {
+      return (await value).ToMaybeObject();
+    }
+
+    public static T? OrELseNull<T>(this Maybe<T> obj) where T : class
+    {
+      return obj.OrElseDefault();
+    }
+  }
+
+  public static class BasicNullableExtensions
   {
     public static T OrThrow<T>(this T? instance) where T : class
     {
