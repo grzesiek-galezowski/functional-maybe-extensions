@@ -18,16 +18,54 @@ namespace NullableReferenceTypesExtensions
                "to non-nullable reference type because it is null");
     }
 
-    public static TResult? Select<T, TResult>(this T? a, Func<T, TResult> fn) 
+    public static TResult? Select<T, TResult>(this T? instance, Func<T, TResult> fn) 
       where T: class 
       where TResult : class
     {
-      return a == null ? null : fn(a);
+      return instance == null ? null : fn(instance);
     }
 
-    public static T OrElse<T>(this T? a, Func<T> @default) where T : class
+    public static T OrElse<T>(this T? instance, Func<T> @default) where T : class
     {
-      return a ?? @default();
+      return instance ?? @default();
+    }
+
+    public static T OrElse<T>(this T? instance, T @default) where T : class
+    {
+      return instance ?? @default;
+    }
+
+    public static T OrElse<T, TException>(this T? instance, Func<TException> @default) where T : class where TException : Exception
+    {
+      return instance ?? throw @default();
+    }
+
+    public static string ReturnToString<T>(this T? instance, string @default) where T : class
+    {
+      return instance != null ? instance.ToString() : @default;
+    }
+
+    public static async Task<TR?> SelectAsync<T, TR>(
+      this T? @this,
+      Func<T?, Task<TR?>> res) where T : class where TR : class
+    {
+      TR? maybe;
+      if (@this != null)
+        maybe = await res(@this!);
+      else
+        maybe = null;
+      return maybe;
+    }
+
+    public static async Task<T> OrElseAsync<T>(this Task<T?> instance, Func<Task<T>> orElse) where T : class
+    {
+      var maybe = await instance;
+      T obj;
+      if (maybe != null)
+        obj = maybe!;
+      else
+        obj = await orElse();
+      return obj;
     }
   }
 }
