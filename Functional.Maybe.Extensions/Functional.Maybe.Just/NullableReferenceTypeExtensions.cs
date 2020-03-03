@@ -48,6 +48,16 @@ namespace NullableReferenceTypesExtensions
                "to non-nullable reference type because it is null");
     }
 
+    public static async Task<T> OrThrowAsync<T>(this Task<T?> instance) where T : class
+    {
+      return OrThrow(await instance);
+    }
+
+    public static async Task<T> OrThrowAsync<T>(this Task<T?> instance, string instanceName) where T : class
+    {
+      return OrThrow(await instance, instanceName);
+    }
+
     public static TResult? Select<T, TResult>(this T? instance, Func<T, TResult> fn) 
       where T: class 
       where TResult : class
