@@ -10,8 +10,8 @@
     <RepositoryUrl>https://github.com/grzesiek-galezowski/functional-maybe-extensions</RepositoryUrl>
     <Description>A JSON.Net converter that allows serialization and deserialization of instances of Functional.Maybe</Description>
     <Authors>Grzegorz Gałęzowski</Authors>
-    <Version>2.1.0</Version>
-    <PackageReleaseNotes>Hopefully fixed license</PackageReleaseNotes>
+    <Version>2.2.0</Version>
+    <PackageReleaseNotes>Automatic serialization of subtypes</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup>

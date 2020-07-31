@@ -9,7 +9,17 @@ namespace Functional.Maybe.JsonConverter
     {
         if (value.HasValue)
         {
-            serializer.Serialize(writer, value.Value);
+            if (value.Value.GetType() == typeof(T))
+            {
+                serializer.Serialize(writer, value.Value);
+            }
+            else
+            {
+                var previousTypeNameHandling = serializer.TypeNameHandling;
+                serializer.TypeNameHandling = TypeNameHandling.All;
+                serializer.Serialize(writer, value.Value);
+                serializer.TypeNameHandling = previousTypeNameHandling;
+            }
         }
         else
         {
@@ -24,7 +34,11 @@ namespace Functional.Maybe.JsonConverter
         return Maybe<T>.Nothing;
       }
 
+      var previousTypeHandling = serializer.TypeNameHandling;
+      serializer.TypeNameHandling = TypeNameHandling.Auto;
       var value = serializer.Deserialize<T>(reader);
+      serializer.TypeNameHandling = previousTypeHandling;
       return value.ToMaybe();
     }
-  }}
+  }
+}

@@ -1,4 +1,5 @@
 using FluentAssertions;
+using Functional.Maybe.JsonConverter;
 using Functional.Maybe.Just;
 using Newtonsoft.Json;
 using NUnit.Framework;
@@ -59,10 +60,47 @@ namespace Functional.Maybe.JsonConverterSpecification
             deserializeObject.AnInteger.HasValue.Should().BeFalse();
         }
 
-        [Test] public void ShouldDeserializeValueOfPrimitiveTypeAsJust()
+        [Test] 
+        public void ShouldDeserializeValueOfPrimitiveTypeAsJust()
         {
             var deserializeObject = JsonConvert.DeserializeObject<ObjectWithMaybePrimitiveType>("{\"AnInteger\":2}");
             deserializeObject.AnInteger.Should().Be(2.Just());
         }
+
+        [Test] 
+        public void ShouldDeserializeSubclassInstance()
+        {
+            var serializedObject = JsonConvert.SerializeObject(
+                new Root()
+                {
+                    SO = ((SuperObject)new SubObject()).ToMaybe(),
+                });
+            var deserializeObject = JsonConvert.DeserializeObject<Root>(serializedObject);
+            deserializeObject.SO.Value.Should().BeOfType<SubObject>();
+            deserializeObject.SO.Select(v => (SubObject)v).Value.B.Should().Be(321);
+            deserializeObject.SO2.Should().BeOfType<SuperObject>();
+        }
+    }
+
+    public class Root
+    {
+        [JsonConverter(typeof(MaybeConverter<SuperObject>))]
+        [JsonProperty("so", TypeNameHandling = TypeNameHandling.All)]
+        public Maybe<SuperObject> SO { get; set; }
+
+        [JsonProperty("so2")]
+        public SuperObject SO2 { get; set; } = new SuperObject();
+
+        public string Lol { get; set; }
+    }
+
+    public class SuperObject
+    {
+        public int A = 123;
+    }
+
+    public class SubObject : SuperObject
+    {
+        public int B = 321;
     }
 }
