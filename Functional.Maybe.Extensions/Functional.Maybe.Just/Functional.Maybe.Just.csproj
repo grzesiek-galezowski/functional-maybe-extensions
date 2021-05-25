@@ -10,13 +10,13 @@
     <RepositoryUrl>https://github.com/grzesiek-galezowski/functional-maybe-extensions</RepositoryUrl>
     <Description>An extension with Just() method for Functional.Maybe</Description>
     <Authors>Grzegorz Gałęzowski</Authors>
-    <Version>1.5.0</Version>
+    <Version>1.6.0</Version>
     <PackageReleaseNotes />
     <RootNamespace>Functional.Maybe.Just</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>

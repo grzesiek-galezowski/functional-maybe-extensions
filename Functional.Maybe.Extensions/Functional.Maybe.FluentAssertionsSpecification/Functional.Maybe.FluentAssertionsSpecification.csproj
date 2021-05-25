@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>latest</LangVersion>
     <NullableContextOptions>enable</NullableContextOptions>
   </PropertyGroup>
 

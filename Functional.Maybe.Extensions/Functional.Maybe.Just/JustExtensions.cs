@@ -11,11 +11,11 @@ namespace Functional.Maybe.Just
       throw new ArgumentNullException(nameof(value), "Cannot create a Just<" + typeof(T) + "> from null");
     }
 
-    public static Maybe<T> Just<T>(this T value)
+    public static Maybe<T> Just<T>(this T? value)
     {
       if (value != null)
       {
-        return value.ToMaybe();
+        return value!.ToMaybe();
       }
       throw new ArgumentNullException(nameof(value), "Cannot create a Just<" + typeof(T) + "> from null");
     }

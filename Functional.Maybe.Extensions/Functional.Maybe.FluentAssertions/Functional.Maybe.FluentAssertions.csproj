@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>latest</LangVersion>
     <NullableContextOptions>enable</NullableContextOptions>
     <Copyright>Grzegorz Gałęzowski 2019</Copyright>
     <Authors>Grzegorz Gałęzowski</Authors>

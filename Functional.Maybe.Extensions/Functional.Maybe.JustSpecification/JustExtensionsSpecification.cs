@@ -19,17 +19,5 @@ namespace Functional.Maybe.JustSpecification
       Assert.AreEqual(1, (await Task.FromResult(1).JustAsync()).Value);
       Assert.ThrowsAsync<ArgumentNullException>(() => Task.FromResult(nullString).JustAsync());
     }
-
-    [Test]
-    public async Task Test2()
-    {
-      string? nullString = null;
-      Assert.Throws<ArgumentNullException>(() => nullString.JustObject());
-      Assert.AreEqual("a".ToMaybeObject(), "a".JustObject());
-      Assert.AreEqual("a", "a".JustObject().Value);
-      Assert.AreEqual("a", (await Task.FromResult("a").JustAsync()).Value);
-      Assert.AreEqual(1, (await Task.FromResult(1).JustAsync()).Value);
-      Assert.ThrowsAsync<ArgumentNullException>(() => Task.FromResult(nullString).JustAsync());
-    }
   }
 }
