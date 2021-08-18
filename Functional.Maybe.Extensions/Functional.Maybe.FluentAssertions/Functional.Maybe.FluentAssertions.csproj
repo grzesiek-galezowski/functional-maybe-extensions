@@ -16,12 +16,12 @@
     <RepositoryUrl>https://github.com/grzesiek-galezowski/functional-maybe-extensions</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <Version>1.2.0</Version>
+    <Version>2.0.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentAssertions" Version="5.10.0" />
-    <PackageReference Include="Functional.Maybe" Version="2.0.18" />
+    <PackageReference Include="FluentAssertions" Version="6.0.0" />
+    <PackageReference Include="Functional.Maybe" Version="2.0.20" />
   </ItemGroup>
 
   <ItemGroup>

@@ -16,7 +16,7 @@ namespace NullableReferenceTypesExtensions
       return (await value).ToMaybeObject();
     }
 
-    public static T? OrELseNull<T>(this Maybe<T> obj)
+    public static T? OrELseNull<T>(this Maybe<T> obj) where T : class
     {
       return obj.OrElseDefault();
     }
@@ -47,10 +47,20 @@ namespace NullableReferenceTypesExtensions
       return OrThrow(await instance, instanceName);
     }
 
-    public static TResult? Select<T, TResult>(this T? instance, Func<T, TResult> fn) 
+    public static TResult? SelectOrNull<T, TResult>(this T? instance, Func<T, TResult> fn) 
       where TResult : class
     {
       return instance == null ? null : fn(instance);
+    }
+
+    public static TResult SelectOrElse<T, TResult>(this T? instance, Func<T, TResult> fn, TResult defaultResult)
+    {
+      return instance == null ? defaultResult : fn(instance);
+    }
+
+    public static TResult SelectOrElse<T, TResult>(this T? instance, Func<T, TResult> fn, Func<TResult> defaultFn)
+    {
+      return instance == null ? defaultFn() : fn(instance);
     }
 
     public static T OrElse<T>(this T? instance, Func<T> @default)
@@ -73,13 +83,13 @@ namespace NullableReferenceTypesExtensions
       return instance != null ? instance.ToString() : @default;
     }
 
-    public static async Task<TR?> SelectAsync<T, TR>(
+    public static async Task<TR?> SelectOrNullAsync<T, TR>(
       this T? @this,
       Func<T?, Task<TR?>> res) where TR : class
     {
       TR? maybe;
       if (@this != null)
-        maybe = await res(@this!);
+        maybe = await res(@this);
       else
         maybe = null;
       return maybe;
@@ -90,7 +100,7 @@ namespace NullableReferenceTypesExtensions
       var maybe = await instance;
       T obj;
       if (maybe != null)
-        obj = maybe!;
+        obj = maybe;
       else
         obj = await orElse();
       return obj;

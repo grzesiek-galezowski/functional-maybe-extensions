@@ -8,8 +8,8 @@ namespace Functional.Maybe.FluentAssertions
   public class MaybeAssertions<T> : ReferenceTypeAssertions<Maybe<T>, MaybeAssertions<T>>
   {
     public MaybeAssertions(Maybe<T> maybe)
+    : base(maybe)
     {
-      Subject = maybe;
     }
 
     protected override string Identifier { get; } = "Maybe<" + typeof(T).Name + ">";
@@ -17,7 +17,9 @@ namespace Functional.Maybe.FluentAssertions
     public AndConstraint<MaybeAssertions<T>> BeJust(T expected)
     {
       Execute.Assertion.ForCondition(Subject.HasValue).FailWith("Expected a value of type " + typeof(T).Name + ", but got Nothing.");
-      Execute.Assertion.ForCondition(Subject.Value.IsSameOrEqualTo(expected)).FailWith("Expected {context:object} to be {0}{reason}, but found {1}.", expected, this.Subject);
+      Execute.Assertion.ForCondition(
+        ReferenceEquals(Subject.Value, expected) || Equals(Subject.Value, expected)
+        ).FailWith("Expected {context:object} to be {0}{reason}, but found {1}.", expected, this.Subject);
       return new AndConstraint<MaybeAssertions<T>>(this);
     }
 
