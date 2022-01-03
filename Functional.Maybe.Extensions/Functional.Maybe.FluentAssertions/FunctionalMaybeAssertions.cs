@@ -1,5 +1,4 @@
 ﻿using FluentAssertions;
-using FluentAssertions.Common;
 using FluentAssertions.Execution;
 using FluentAssertions.Primitives;
 
@@ -19,7 +18,7 @@ namespace Functional.Maybe.FluentAssertions
       Execute.Assertion.ForCondition(Subject.HasValue).FailWith("Expected a value of type " + typeof(T).Name + ", but got Nothing.");
       Execute.Assertion.ForCondition(
         ReferenceEquals(Subject.Value, expected) || Equals(Subject.Value, expected)
-        ).FailWith("Expected {context:object} to be {0}{reason}, but found {1}.", expected, this.Subject);
+        ).FailWith("Expected {context:object} to be {0}{reason}, but found {1}.", expected, Subject);
       return new AndConstraint<MaybeAssertions<T>>(this);
     }
 
@@ -31,7 +30,8 @@ namespace Functional.Maybe.FluentAssertions
 
     public AndConstraint<MaybeAssertions<T>> BeNothing()
     {
-      Execute.Assertion.ForCondition(!Subject.HasValue).FailWith(() => new FailReason("Expected a Nothing, but got a value of {0}", this.Subject.Value));
+      Execute.Assertion.ForCondition(!Subject.HasValue)
+        .FailWith(() => new FailReason("Expected a Nothing, but got a value of {0}", Subject.Value));
       return new AndConstraint<MaybeAssertions<T>>(this);
     }
   }

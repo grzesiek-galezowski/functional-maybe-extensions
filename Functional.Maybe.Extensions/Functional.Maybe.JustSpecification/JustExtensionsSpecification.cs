@@ -1,7 +1,6 @@
 using System;
 using System.Threading.Tasks;
 using Functional.Maybe.Just;
-using NullableReferenceTypesExtensions;
 using NUnit.Framework;
 
 namespace Functional.Maybe.JustSpecification
@@ -15,7 +14,7 @@ namespace Functional.Maybe.JustSpecification
       Assert.Throws<ArgumentNullException>(() => nullString.Just());
       Assert.AreEqual("a".ToMaybe(), "a".Just());
       Assert.AreEqual("a", "a".Just().Value);
-      Assert.AreEqual("a", (await Task.FromResult("a").JustAsync()).Value);
+      Assert.AreEqual("a", (await Task.FromResult<string?>("a").JustAsync()).Value);
       Assert.AreEqual(1, (await Task.FromResult(1).JustAsync()).Value);
       Assert.ThrowsAsync<ArgumentNullException>(() => Task.FromResult(nullString).JustAsync());
     }

@@ -6,7 +6,7 @@
 
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
-    <NullableContextOptions>enable</NullableContextOptions>
+    <Nullable>enable</Nullable>
     <Copyright>Grzegorz Gałęzowski 2019</Copyright>
     <Authors>Grzegorz Gałęzowski</Authors>
     <Company />
@@ -20,7 +20,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentAssertions" Version="6.0.0" />
+    <PackageReference Include="FluentAssertions" Version="6.3.0" />
     <PackageReference Include="Functional.Maybe" Version="2.0.20" />
   </ItemGroup>
 

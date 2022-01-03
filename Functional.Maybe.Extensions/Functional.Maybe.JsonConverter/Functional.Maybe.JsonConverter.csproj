@@ -16,7 +16,7 @@
 
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
-    <NullableContextOptions>enable</NullableContextOptions>
+    <Nullable>enable</Nullable>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 

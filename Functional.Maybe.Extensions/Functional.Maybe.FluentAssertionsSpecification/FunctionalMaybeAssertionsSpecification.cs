@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 using FluentAssertions;
 using Functional.Maybe.FluentAssertions;
 using Functional.Maybe.Just;
@@ -14,6 +13,7 @@ namespace Functional.Maybe.FluentAssertionsSpecification
       [Test]
       public void ShouldFailWhenComparingWithJustForReferenceType()
       {
+        new object().Should().NotBe(null);
         new Action(() =>
             new AccessViolationException().Just().Should().BeNothing())
           .Should().ThrowExactly<AssertionException>()
@@ -36,7 +36,6 @@ namespace Functional.Maybe.FluentAssertionsSpecification
             1.Just().Should().BeNothing())
           .Should().ThrowExactly<AssertionException>()
           .WithMessage("Expected a Nothing, but got a value of 1");
-
       }
 
       [Test]
